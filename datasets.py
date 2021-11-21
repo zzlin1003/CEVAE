@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 
 class IHDP(object):
-    def __init__(self, path_data="datasets/IHDP/csv", replications=10):
+    def __init__(self, path_data="datasets/IHDP/setting_a", replications=10):
         self.path_data = path_data
         self.replications = replications
         # which features are binary
