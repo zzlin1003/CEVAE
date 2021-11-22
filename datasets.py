@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 
 class IHDP(object):
-    def __init__(self, path_data="../TEDVAE/IHDP", replications=10):
+    def __init__(self, path_data="../TEDVAE/IHDP_b", replications=10):
         self.path_data = path_data
         self.replications = replications
         # which features are binary
@@ -21,7 +21,8 @@ class IHDP(object):
 
     def get_train_valid_test(self):
         for i in range(self.replications):
-            data = np.loadtxt(self.path_data + '/ihdp_npci_' + str(i + 1) + '.csv', delimiter=',')
+            data = np.loadtxt(self.path_data + '/ihdp_npci_train_' + str(i + 1) + '.csv', 
+                delimiter=',', skiprows=1)
             t, y, y_cf = data[:, 0][:, np.newaxis], data[:, 1][:, np.newaxis], data[:, 2][:, np.newaxis]
             mu_0, mu_1, x = data[:, 3][:, np.newaxis], data[:, 4][:, np.newaxis], data[:, 5:]
             # this binary feature is in {1, 2}
